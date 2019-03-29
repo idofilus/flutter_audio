@@ -1,0 +1,20 @@
+name: audio
+description: Audio recorder, streamable and multi-player.
+version: 0.0.1
+author: Ido Filus <idofilus@gmail.com>
+homepage: https://github.com/idofilus/flutter_audio
+
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  flutter: ">=0.2.5 <2.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  uuid: ^1.0.3
+
+flutter:
+  plugin:
+    androidPackage: com.idofilus.audio
+    pluginClass: AudioPlugin
