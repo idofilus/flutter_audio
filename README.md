@@ -1,8 +1,9 @@
-# Audio
+# Multi-player audio
 
 **This plugin is under development, this already being used in production. Just make sure you understand what's missing**
 
- 
+![Example running on Android](https://github.com/idofilus/flutter_audio/doc/flutter_audio.gif)
+
 
 Flutter Audio which will both play and ~~record audio~~ _(upcoming feature)_.
 

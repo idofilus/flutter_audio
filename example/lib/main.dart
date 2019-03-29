@@ -42,6 +42,7 @@ class AudioPlayerDemoState extends State<AudioPlayerDemo>
     Audio audioPlayer = new Audio(single: true);
     AudioPlayerState state = AudioPlayerState.STOPPED;
     double position = 0;
+    int buffering = 0;
     StreamSubscription<AudioPlayerState> _playerStateSubscription;
     StreamSubscription<double> _playerPositionController;
     StreamSubscription<int> _playerBufferingSubscription;
@@ -69,6 +70,9 @@ class AudioPlayerDemoState extends State<AudioPlayerDemo>
         _playerBufferingSubscription = audioPlayer.onPlayerBufferingChanged.listen((int percent)
         {
             print("onPlayerBufferingChanged: ${audioPlayer.uid} $percent");
+
+            if (mounted && buffering != percent)
+                setState(() => buffering = percent);
         });
 
         _playerErrorSubscription = audioPlayer.onPlayerError.listen((AudioPlayerError error)
@@ -95,10 +99,16 @@ class AudioPlayerDemoState extends State<AudioPlayerDemo>
                 status = Container(
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
-                        child: Center(
-                            child: CircularProgressIndicator(strokeWidth: 2.0)),
                         width: 24.0,
-                        height: 24.0
+                        height: 24.0,
+                        child: Center(
+                            child: Stack(
+                                alignment: AlignmentDirectional.center,
+                                children: <Widget>[
+                                    CircularProgressIndicator(strokeWidth: 2.0),
+                                    Text("${buffering}%", style: TextStyle(fontSize: 8.0), textAlign: TextAlign.center)
+                                ],
+                            )),
                     )
                 );
                 break;
@@ -127,7 +137,6 @@ class AudioPlayerDemoState extends State<AudioPlayerDemo>
             padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 16.0),
             child: Column(
                 children: <Widget>[
-                    //Text("Audio Player"),
                     Text(audioPlayer.uid),
                     Row(
                         children: <Widget>[
@@ -192,6 +201,7 @@ class _AudioAppState extends State<AudioApp>
     Widget build(BuildContext context)
     {
         return MaterialApp(
+            debugShowCheckedModeBanner: false,
             home: Scaffold(
                 appBar: AppBar(
                     title: const Text("Audio"),
