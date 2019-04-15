@@ -1,11 +1,12 @@
-## 0.0.1
+## 0.0.4
+* Fixed gif
 
-* Multiplayer audio support
+## 0.0.3
+* Added gif
 
 ## 0.0.2
 * Added LICENSE
 * Added example snippet
 
-
-## 0.0.3
-* Added gif
+## 0.0.1
+* Multiplayer audio support

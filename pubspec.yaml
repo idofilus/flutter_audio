@@ -1,6 +1,6 @@
 name: audio
 description: Audio recorder, streamable and multi-player.
-version: 0.0.3
+version: 0.0.4
 author: Ido Filus <idofilus@gmail.com>
 homepage: https://github.com/idofilus/flutter_audio
 
