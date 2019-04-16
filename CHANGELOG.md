@@ -1,3 +1,6 @@
+## 0.0.5
+* Updated Uuid version to latest
+
 ## 0.0.4
 * Fixed gif
 
