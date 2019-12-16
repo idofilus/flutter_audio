@@ -164,7 +164,6 @@ class AudioPlayer
         if (position is int)
             position = (position as int).toDouble();
 
-        print("player.onCurrentPosition: $position");
         _playerPositionController.add(position);
     }
 
@@ -290,13 +289,11 @@ class Audio
     Future<void> _onChannelMethod(MethodCall call) async
     {
         Map<dynamic, dynamic> data = call.arguments;
-        print("[_onChannelMethod] method=${call.method} arguments=${call.arguments} ${(call.arguments as Map)["uid"]}");
 
         AudioPlayer player = players[data["uid"]];
 
         if (player == null)
         {
-            print("[_onChannelMethod] ERROR: No player available at uid=${(call.arguments as Map)["uid"]}");
             return;
         }
 
