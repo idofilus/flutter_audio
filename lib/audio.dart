@@ -345,7 +345,7 @@ class Audio
         {
             players.forEach((uid, player)
             {
-                player.pause();
+                await player.pause();
             });
         }
 
